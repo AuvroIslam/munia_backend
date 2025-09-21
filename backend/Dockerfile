@@ -51,7 +51,7 @@ RUN mkdir -p /app/storage/logs \
 EXPOSE $PORT
 
 # Create startup script
-RUN echo '#!/bin/bash\nphp artisan config:cache\nphp artisan route:cache\nphp artisan view:cache\nphp artisan migrate --force\nphp artisan serve --host=0.0.0.0 --port=${PORT:-8000}' > /app/start.sh \
+RUN echo '#!/bin/bash\nphp artisan config:cache\nphp artisan route:cache\nphp artisan view:cache\nphp artisan migrate --force\nphp artisan db:seed --force\nphp artisan serve --host=0.0.0.0 --port=${PORT:-8000}' > /app/start.sh \
     && chmod +x /app/start.sh
 
 # Start command
