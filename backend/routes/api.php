@@ -32,6 +32,16 @@ Route::get('/books/picks/list', [BookController::class, 'getEditorsPicks']);
 // Semantic Search
 Route::get('/semantic-search', [SearchController::class, 'semanticSearch']);
 
+// Temporary seeder route for testing
+Route::get('/seed-books', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'BookSeeder']);
+        return response()->json(['message' => 'Books seeded successfully']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});
+
 // Stripe Webhook Route
 Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook']);
 
