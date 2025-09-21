@@ -32,6 +32,9 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 # Copy application code
 COPY . .
 
+# Clear any cached config before composer operations
+RUN rm -rf bootstrap/cache/*.php
+
 # Run composer scripts
 RUN composer dump-autoload --optimize
 
