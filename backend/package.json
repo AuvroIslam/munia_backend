@@ -1,10 +1,17 @@
 {
     "$schema": "https://json.schemastore.org/package.json",
+    "name": "pdf-pulse-backend",
+    "version": "1.0.0",
+    "description": "Laravel backend for PDF Pulse application",
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "build": "chmod +x build.sh && ./build.sh && vite build",
+        "dev": "vite",
+        "start": "chmod +x start.sh && ./start.sh"
+    },
+    "engines": {
+        "node": "18.x"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
