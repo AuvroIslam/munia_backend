@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.2",
         "aws/aws-sdk-php": "^3.356",
+        "fakerphp/faker": "^1.23",
         "google-gemini-php/client": "^2.5",
         "google-gemini-php/laravel": "^2.0",
         "guzzlehttp/guzzle": "^7.9",
@@ -22,7 +23,6 @@
         "spatie/laravel-stripe-webhooks": "^3.8"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.41",

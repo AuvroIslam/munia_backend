@@ -42,6 +42,37 @@ Route::get('/seed-books', function () {
     }
 });
 
+// Simple seeder without embeddings
+Route::get('/seed-simple', function () {
+    try {
+        // Clear existing books
+        \App\Models\Book::truncate();
+        
+        // Create a simple book without embedding
+        \App\Models\Book::create([
+            'title' => 'Test Book',
+            'author' => 'Test Author',
+            'description' => 'This is a test book to check if basic seeding works',
+            'genre' => 'Test',
+            'price' => 0.00,
+            'is_free' => true,
+            'rating' => 4.5,
+            'cover_image' => 'https://via.placeholder.com/300x400',
+            'pdf_file_path' => 'pdfs/test.pdf',
+            'featured' => true,
+            'editors_pick' => false,
+            'publication_date' => '2024-01-01'
+        ]);
+        
+        return response()->json([
+            'message' => 'Simple book created',
+            'count' => \App\Models\Book::count()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});
+
 // Debug route to check environment
 Route::get('/debug-env', function () {
     return response()->json([
