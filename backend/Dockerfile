@@ -26,8 +26,8 @@ WORKDIR /app
 # Copy composer files first for better caching
 COPY composer.json composer.lock ./
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+# Install dependencies (including dev for Faker)
+RUN composer install --optimize-autoloader --no-scripts
 
 # Copy application code
 COPY . .
