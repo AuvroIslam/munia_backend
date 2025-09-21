@@ -1,0 +1,42 @@
+# Root .gitignore for PDF Pulse Project
+
+# Environment files (sensitive data)
+.env
+.env.local
+.env.backup
+.env.production
+
+# Dependencies
+node_modules/
+backend/vendor/
+
+# Build outputs
+frontend/dist/
+frontend/build/
+
+# Logs
+*.log
+logs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation (optional - remove if you want to include)
+# README.md
