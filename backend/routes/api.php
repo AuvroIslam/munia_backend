@@ -42,6 +42,15 @@ Route::get('/seed-books', function () {
     }
 });
 
+// Debug route to check environment
+Route::get('/debug-env', function () {
+    return response()->json([
+        'gemini_key_set' => !empty(env('GEMINI_API_KEY')),
+        'db_connection' => config('database.default'),
+        'books_count' => \App\Models\Book::count()
+    ]);
+});
+
 // Stripe Webhook Route
 Route::post('/stripe/webhook', [WebhookController::class, 'handleWebhook']);
 
